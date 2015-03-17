@@ -20,18 +20,16 @@ class MainWindow(StandardWindow):
         self.callback_delete_request_add(lambda o: elm.exit())
         self.elm_event_callback_add(self.eventsCb)
 
-        self.ourLifeTotal = 20
-        self.theirLifeTotal = 20
-        
         self.buildSubs()
+        self.resetLifeTotals()
     
     def buildSubs(self):
         self.subWin = DialogWindow(self, "lifetracker", "Life Tracker Assignment", size=(300, 300))
         self.subWin.callback_delete_request_add(lambda o: elm.exit())
-        self.ourWin = DialogWindow(self, "lifetracker", "Life Tracker Jeff Hoogland", size=(1200, 300))
+        self.ourWin = DialogWindow(self, "lifetracker", "Life Tracker Jeff Hoogland", size=(1300, 300))
         self.ourWin.callback_delete_request_add(lambda o: elm.exit())
         self.ourWin.elm_event_callback_add(self.eventsCb)
-        self.theirWin = DialogWindow(self, "lifetracker", "Life Tracker %s"%theirName, size=(1200, 300))
+        self.theirWin = DialogWindow(self, "lifetracker", "Life Tracker %s"%theirName, size=(1300, 300))
         self.theirWin.callback_delete_request_add(lambda o: elm.exit())
         self.theirWin.elm_event_callback_add(self.eventsCb)
         
@@ -39,14 +37,12 @@ class MainWindow(StandardWindow):
         ourLabel.size_hint_weight = EXPAND_HORIZ
         ourLabel.size_hint_align = FILL_HORIZ
         ourLabel.text_style_user_push("DEFAULT='font_size=100'")
-        ourLabel.text = "%s  -  Jeff Hoogland"%self.ourLifeTotal
         ourLabel.show()
         
         self.theirLife = ourLabel2 = Entry(self.theirWin, editable=False)
         ourLabel2.size_hint_weight = EXPAND_HORIZ
         ourLabel2.size_hint_align = FILL_HORIZ
         ourLabel2.text_style_user_push("DEFAULT='font_size=100'")
-        ourLabel2.text = "%s  -  %s"%(self.theirLifeTotal, theirName)
         ourLabel2.show()
         
         self.ourEntry = ourEntry = Entry(self.subWin)
@@ -91,21 +87,33 @@ class MainWindow(StandardWindow):
         self.theirWin.center(True, True)
         self.subWin.center(True, True)
     
-    def resetLifeTotals(self, obj):
+    def resetLifeTotals(self, obj=None):
         self.ourLifeTotal = 20
-        self.ourLife.text = "%s  -  Jeff Hoogland"%self.ourLifeTotal
         self.ourEntry.text = str(self.ourLifeTotal)
+        self.updateLifeText("mine")
         self.theirLifeTotal = 20
-        self.theirLife.text = "%s  -  %s"%(self.theirLifeTotal, theirName)
         self.theirEntry.text = str(self.theirLifeTotal)
+        self.updateLifeText("theirs")
     
     def ourLifeUpdate(self, obj):
         self.ourLifeTotal = int(obj.text)
-        self.ourLife.text = "%s  -  Jeff Hoogland"%self.ourLifeTotal
+        self.updateLifeText("mine")
     
     def theirLifeUpdate(self, obj):
         self.theirLifeTotal = int(obj.text)
-        self.theirLife.text = "%s  -  %s"%(self.theirLifeTotal, theirName)
+        self.updateLifeText("theirs")
+    
+    def updateLifeText(self, who):
+        if who == "mine":
+            lifeText = str(self.ourLifeTotal)
+            while len(lifeText) < 3:
+                lifeText = " %s"%lifeText
+            self.ourLife.text = "%s  -  Jeff Hoogland"%lifeText
+        else:
+            lifeText = str(self.theirLifeTotal)
+            while len(lifeText) < 3:
+                lifeText = " %s"%lifeText
+            self.theirLife.text = "%s  -  %s"%(lifeText, theirName)
     
     def lifeChange(self, who, direction):
         if direction == "up":
@@ -115,12 +123,12 @@ class MainWindow(StandardWindow):
         
         if who == "mine":
             self.ourLifeTotal += change
-            self.ourLife.text = "%s  -  Jeff Hoogland"%self.ourLifeTotal
             self.ourEntry.text = str(self.ourLifeTotal)
+            self.updateLifeText("mine")
         else:
             self.theirLifeTotal += change
-            self.theirLife.text = "%s  -  %s"%(self.theirLifeTotal, theirName)
             self.theirEntry.text = str(self.theirLifeTotal)
+            self.updateLifeText("theirs")
     
     def eventsCb(self, obj, src, event_type, event):
         #print(obj)
