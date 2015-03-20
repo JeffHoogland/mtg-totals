@@ -1,5 +1,8 @@
 theirName = "Mat Bimonte"
 
+myLifeFile = "/media/jeff/Storage/CrashTest/DataTextFiles/MyLife.txt"
+theirLifeFile = "/media/jeff/Storage/CrashTest/DataTextFiles/TheirLife.txt"
+
 import efl.elementary as elm
 from efl.elementary.window import StandardWindow, DialogWindow
 from efl.elementary.background import Background
@@ -26,24 +29,16 @@ class MainWindow(StandardWindow):
     def buildSubs(self):
         self.subWin = DialogWindow(self, "lifetracker", "Life Tracker Assignment", size=(300, 300))
         self.subWin.callback_delete_request_add(lambda o: elm.exit())
-        self.ourWin = DialogWindow(self, "lifetracker", "Life Tracker Jeff Hoogland", size=(1300, 300))
+        self.ourWin = DialogWindow(self, "lifetracker", "Life Tracker Key Strokes", size=(300, 300))
         self.ourWin.callback_delete_request_add(lambda o: elm.exit())
         self.ourWin.elm_event_callback_add(self.eventsCb)
-        self.theirWin = DialogWindow(self, "lifetracker", "Life Tracker %s"%theirName, size=(1300, 300))
-        self.theirWin.callback_delete_request_add(lambda o: elm.exit())
-        self.theirWin.elm_event_callback_add(self.eventsCb)
         
         self.ourLife = ourLabel = Entry(self.ourWin, editable=False)
-        ourLabel.size_hint_weight = EXPAND_HORIZ
-        ourLabel.size_hint_align = FILL_HORIZ
-        ourLabel.text_style_user_push("DEFAULT='font_size=100'")
+        ourLabel.size_hint_weight = EXPAND_BOTH
+        ourLabel.size_hint_align = FILL_BOTH
+        ourLabel.text_style_user_push("DEFAULT='font_size=20'")
+        ourLabel.text = "Up and Down for My Life, Left and Right for Theirs"
         ourLabel.show()
-        
-        self.theirLife = ourLabel2 = Entry(self.theirWin, editable=False)
-        ourLabel2.size_hint_weight = EXPAND_HORIZ
-        ourLabel2.size_hint_align = FILL_HORIZ
-        ourLabel2.text_style_user_push("DEFAULT='font_size=100'")
-        ourLabel2.show()
         
         self.ourEntry = ourEntry = Entry(self.subWin)
         ourEntry.size_hint_weight = EXPAND_HORIZ
@@ -76,15 +71,12 @@ class MainWindow(StandardWindow):
         entryBox.show()
         
         self.ourWin.resize_object_add(ourLabel)
-        self.theirWin.resize_object_add(ourLabel2)
         self.subWin.resize_object_add(entryBox)
         
         self.ourWin.show()
-        self.theirWin.show()
         self.subWin.show()
         
         self.ourWin.center(True, True)
-        self.theirWin.center(True, True)
         self.subWin.center(True, True)
     
     def resetLifeTotals(self, obj=None):
@@ -108,12 +100,14 @@ class MainWindow(StandardWindow):
             lifeText = str(self.ourLifeTotal)
             while len(lifeText) < 3:
                 lifeText = " %s"%lifeText
-            self.ourLife.text = "%s  -  Jeff Hoogland"%lifeText
+            with open(myLifeFile, 'w') as myfile: #file is a builtin, don't name your file 'file'
+                myfile.write(lifeText)
         else:
             lifeText = str(self.theirLifeTotal)
             while len(lifeText) < 3:
                 lifeText = " %s"%lifeText
-            self.theirLife.text = "%s  -  %s"%(lifeText, theirName)
+            with open(theirLifeFile,'w') as myfile: #file is a builtin, don't name your file 'file'
+                myfile.write(lifeText)
     
     def lifeChange(self, who, direction):
         if direction == "up":
