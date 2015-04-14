@@ -4,7 +4,7 @@ myLifeFile = "/media/jeff/Storage/CrashTest/DataTextFiles/MyLife.txt"
 theirLifeFile = "/media/jeff/Storage/CrashTest/DataTextFiles/TheirLife.txt"
 
 import efl.elementary as elm
-from efl.elementary.window import StandardWindow, DialogWindow
+from efl.elementary.window import StandardWindow, Window, ELM_WIN_DIALOG_BASIC
 from efl.elementary.background import Background
 from efl.elementary.entry import Entry
 from efl.elementary.box import Box
@@ -27,9 +27,17 @@ class MainWindow(StandardWindow):
         self.resetLifeTotals()
     
     def buildSubs(self):
-        self.subWin = DialogWindow(self, "lifetracker", "Life Tracker Assignment", size=(300, 300))
+        self.subWin = Window("lifetracker", ELM_WIN_DIALOG_BASIC, self, size=(300, 300))
+        self.subWin.title = "Life Tracker Assignment"
+        bg = Background(self.subWin, size_hint_weight=EXPAND_BOTH)
+        bg.show()
+        self.subWin.resize_object_add(bg)
         self.subWin.callback_delete_request_add(lambda o: elm.exit())
-        self.ourWin = DialogWindow(self, "lifetracker", "Life Tracker Key Strokes", size=(300, 300))
+        self.ourWin = Window("lifetracker", ELM_WIN_DIALOG_BASIC, self, size=(300, 300))
+        self.ourWin.title = "Life Tracker Key Strokes"
+        bg = Background(self.ourWin, size_hint_weight=EXPAND_BOTH)
+        bg.show()
+        self.ourWin.resize_object_add(bg)
         self.ourWin.callback_delete_request_add(lambda o: elm.exit())
         self.ourWin.elm_event_callback_add(self.eventsCb)
         
