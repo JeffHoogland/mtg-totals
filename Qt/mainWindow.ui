@@ -7,11 +7,11 @@
     <x>0</x>
     <y>0</y>
     <width>474</width>
-    <height>494</height>
+    <height>461</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Meadery MTG Stream Tool</string>
+   <string>Meadery MTG Stream Dashboard</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QVBoxLayout" name="verticalLayout_13">
@@ -34,7 +34,7 @@
          </property>
          <layout class="QVBoxLayout" name="verticalLayout_7">
           <item>
-           <widget class="QLabel" name="label_4">
+           <widget class="QLabel" name="p1Label">
             <property name="text">
              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:14pt; font-weight:600;&quot;&gt;Player One&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
             </property>
@@ -57,7 +57,7 @@
               </widget>
              </item>
              <item>
-              <widget class="QLineEdit" name="lineEdit"/>
+              <widget class="QLineEdit" name="p1Name"/>
              </item>
             </layout>
            </widget>
@@ -79,7 +79,7 @@
               </widget>
              </item>
              <item>
-              <widget class="QLineEdit" name="lineEdit_2"/>
+              <widget class="QLineEdit" name="p1Deck"/>
              </item>
             </layout>
            </widget>
@@ -101,7 +101,7 @@
               </widget>
              </item>
              <item>
-              <widget class="QSpinBox" name="spinBox_3">
+              <widget class="QSpinBox" name="p1Life">
                <property name="maximum">
                 <number>10000</number>
                </property>
@@ -130,7 +130,7 @@
               </widget>
              </item>
              <item>
-              <widget class="QSpinBox" name="spinBox_5">
+              <widget class="QSpinBox" name="p1Infect">
                <property name="maximum">
                 <number>10000</number>
                </property>
@@ -156,7 +156,7 @@
               </widget>
              </item>
              <item>
-              <widget class="QSpinBox" name="spinBox">
+              <widget class="QSpinBox" name="p1GameWins">
                <property name="maximum">
                 <number>1000</number>
                </property>
@@ -178,7 +178,7 @@
          </property>
          <layout class="QVBoxLayout" name="verticalLayout_9">
           <item>
-           <widget class="QLabel" name="label_5">
+           <widget class="QLabel" name="p2Label">
             <property name="text">
              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:14pt; font-weight:600;&quot;&gt;Player Two&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
             </property>
@@ -201,7 +201,7 @@
               </widget>
              </item>
              <item>
-              <widget class="QLineEdit" name="lineEdit_3"/>
+              <widget class="QLineEdit" name="p2Name"/>
              </item>
             </layout>
            </widget>
@@ -223,7 +223,7 @@
               </widget>
              </item>
              <item>
-              <widget class="QLineEdit" name="lineEdit_4"/>
+              <widget class="QLineEdit" name="p2Deck"/>
              </item>
             </layout>
            </widget>
@@ -245,7 +245,7 @@
               </widget>
              </item>
              <item>
-              <widget class="QSpinBox" name="spinBox_4">
+              <widget class="QSpinBox" name="p2Life">
                <property name="maximum">
                 <number>10000</number>
                </property>
@@ -274,7 +274,7 @@
               </widget>
              </item>
              <item>
-              <widget class="QSpinBox" name="spinBox_6">
+              <widget class="QSpinBox" name="p2Infect">
                <property name="maximum">
                 <number>10000</number>
                </property>
@@ -300,7 +300,7 @@
               </widget>
              </item>
              <item>
-              <widget class="QSpinBox" name="spinBox_2">
+              <widget class="QSpinBox" name="p2GameWins">
                <property name="maximum">
                 <number>1000</number>
                </property>
@@ -313,13 +313,6 @@
         </widget>
        </item>
       </layout>
-     </widget>
-    </item>
-    <item>
-     <widget class="QPushButton" name="pushButton">
-      <property name="text">
-       <string>Settings</string>
-      </property>
      </widget>
     </item>
    </layout>

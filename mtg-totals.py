@@ -45,7 +45,7 @@ class MainWindow(StandardWindow):
         ourLabel.size_hint_weight = EXPAND_BOTH
         ourLabel.size_hint_align = FILL_BOTH
         ourLabel.text_style_user_push("DEFAULT='font_size=20'")
-        ourLabel.text = "Up and Down for My Life, Left and Right for Theirs"
+        ourLabel.text = "Up and Down for Their Life, Left and Right for Mine"
         ourLabel.show()
         
         self.ourEntry = ourEntry = Entry(self.subWin)
