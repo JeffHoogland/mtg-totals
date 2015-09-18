@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'lifeWindow.ui'
 #
-# Created: Fri Sep 18 12:36:59 2015
+# Created: Fri Sep 18 13:19:02 2015
 #      by: pyside-uic 0.2.15 running on PySide 1.2.1
 #
 # WARNING! All changes made in this file will be lost!

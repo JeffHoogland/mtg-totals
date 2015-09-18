@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'mainWindow.ui'
 #
-# Created: Fri Sep 18 12:36:59 2015
+# Created: Fri Sep 18 13:19:02 2015
 #      by: pyside-uic 0.2.15 running on PySide 1.2.1
 #
 # WARNING! All changes made in this file will be lost!
@@ -188,7 +188,7 @@ class Ui_mainWindow(object):
         QtCore.QMetaObject.connectSlotsByName(mainWindow)
 
     def retranslateUi(self, mainWindow):
-        mainWindow.setWindowTitle(QtGui.QApplication.translate("mainWindow", "Meadery MTG Stream Tool", None, QtGui.QApplication.UnicodeUTF8))
+        mainWindow.setWindowTitle(QtGui.QApplication.translate("mainWindow", "Meadery MTG Stream Dashboard", None, QtGui.QApplication.UnicodeUTF8))
         self.p1Label.setText(QtGui.QApplication.translate("mainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:14pt; font-weight:600;\">Player One</span></p></body></html>", None, QtGui.QApplication.UnicodeUTF8))
         self.label_2.setText(QtGui.QApplication.translate("mainWindow", "<html><head/><body><p align=\"center\">Name</p></body></html>", None, QtGui.QApplication.UnicodeUTF8))
         self.label_3.setText(QtGui.QApplication.translate("mainWindow", "<html><head/><body><p align=\"center\">Deck Name</p></body></html>", None, QtGui.QApplication.UnicodeUTF8))

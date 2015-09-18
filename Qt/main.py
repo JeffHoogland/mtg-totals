@@ -17,6 +17,10 @@ class MainWindow(QMainWindow, Ui_mainWindow):
         super(MainWindow, self).__init__()
         self.setupUi(self)
         
+        icon = QIcon()
+        icon.addPixmap(QPixmap("images/meadery.jpg"), QIcon.Normal, QIcon.Off)
+        self.setWindowIcon(icon)
+        
         if not os.path.isdir("DataFiles"):
             os.makedirs("DataFiles")
         
@@ -25,9 +29,9 @@ class MainWindow(QMainWindow, Ui_mainWindow):
         self.timer.start(1500)
         
         self.lifeWindow = lifeWindow( self )
-        self.lifeWindow.show()
         
         self.show()
+        self.lifeWindow.show()
     
     def update(self):
         #print("Tick")
