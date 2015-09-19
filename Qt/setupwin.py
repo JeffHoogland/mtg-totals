@@ -14,7 +14,7 @@ options = {
 }
 
 executables = [
-    Executable('main.py', base=base)
+    Executable('Dashboard.py', base=base)
 ]
 
 setup(name='Meadery MTG Stream Dashboard',
