@@ -32,6 +32,8 @@ class MainWindow(QMainWindow, Ui_mainWindow):
         
         self.show()
         self.lifeWindow.show()
+        
+        self.assignWidgets()
     
     def update(self):
         #print("Tick")
@@ -51,6 +53,29 @@ class MainWindow(QMainWindow, Ui_mainWindow):
         if writeText:
             with open(targetFile, 'w') as myfile: #file is a builtin, don't name your file 'file'
                 myfile.write(writeText)
+    
+    def resetLifePressed(self):
+        self.p1Life.setValue(20)
+        self.p1Infect.setValue(0)
+        self.p2Life.setValue(20)
+        self.p2Infect.setValue(0)
+    
+    def swapPlayersPressed(self):
+        tempName1 = self.p1Name.displayText()
+        tempDeck1 = self.p1Deck.displayText()
+        
+        tempName2 = self.p2Name.displayText()
+        tempDeck2 = self.p2Deck.displayText()
+        
+        self.p1Name.setText(tempName2)
+        self.p1Deck.setText(tempDeck2)
+        
+        self.p2Name.setText(tempName1)
+        self.p2Deck.setText(tempDeck1)
+    
+    def assignWidgets(self):
+        self.resetLifeButton.clicked.connect(self.resetLifePressed)
+        self.swapPlayersButton.clicked.connect(self.swapPlayersPressed)
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)

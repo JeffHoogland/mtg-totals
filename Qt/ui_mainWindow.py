@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'mainWindow.ui'
 #
-# Created: Fri Sep 18 13:19:02 2015
+# Created: Fri Sep 25 14:24:01 2015
 #      by: pyside-uic 0.2.15 running on PySide 1.2.1
 #
 # WARNING! All changes made in this file will be lost!
@@ -12,7 +12,7 @@ from PySide import QtCore, QtGui
 class Ui_mainWindow(object):
     def setupUi(self, mainWindow):
         mainWindow.setObjectName("mainWindow")
-        mainWindow.resize(474, 461)
+        mainWindow.resize(474, 557)
         self.centralwidget = QtGui.QWidget(mainWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.verticalLayout_13 = QtGui.QVBoxLayout(self.centralwidget)
@@ -182,6 +182,19 @@ class Ui_mainWindow(object):
         self.verticalLayout_9.addWidget(self.frame_12)
         self.horizontalLayout.addWidget(self.frame_5)
         self.verticalLayout_13.addWidget(self.frame_3)
+        self.frame_8 = QtGui.QFrame(self.centralwidget)
+        self.frame_8.setFrameShape(QtGui.QFrame.StyledPanel)
+        self.frame_8.setFrameShadow(QtGui.QFrame.Raised)
+        self.frame_8.setObjectName("frame_8")
+        self.horizontalLayout_2 = QtGui.QHBoxLayout(self.frame_8)
+        self.horizontalLayout_2.setObjectName("horizontalLayout_2")
+        self.resetLifeButton = QtGui.QPushButton(self.frame_8)
+        self.resetLifeButton.setObjectName("resetLifeButton")
+        self.horizontalLayout_2.addWidget(self.resetLifeButton)
+        self.swapPlayersButton = QtGui.QPushButton(self.frame_8)
+        self.swapPlayersButton.setObjectName("swapPlayersButton")
+        self.horizontalLayout_2.addWidget(self.swapPlayersButton)
+        self.verticalLayout_13.addWidget(self.frame_8)
         mainWindow.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(mainWindow)
@@ -201,4 +214,6 @@ class Ui_mainWindow(object):
         self.label_12.setText(QtGui.QApplication.translate("mainWindow", "<html><head/><body><p align=\"center\">Life Total</p></body></html>", None, QtGui.QApplication.UnicodeUTF8))
         self.label_14.setText(QtGui.QApplication.translate("mainWindow", "<html><head/><body><p align=\"center\">Infect Counter</p></body></html>", None, QtGui.QApplication.UnicodeUTF8))
         self.label_10.setText(QtGui.QApplication.translate("mainWindow", "<html><head/><body><p align=\"center\">Game Wins</p></body></html>", None, QtGui.QApplication.UnicodeUTF8))
+        self.resetLifeButton.setText(QtGui.QApplication.translate("mainWindow", "Reset Life", None, QtGui.QApplication.UnicodeUTF8))
+        self.swapPlayersButton.setText(QtGui.QApplication.translate("mainWindow", "Swap Players", None, QtGui.QApplication.UnicodeUTF8))
 
