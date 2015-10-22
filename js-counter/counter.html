@@ -1,0 +1,32 @@
+<BODY>
+<script type='text/javascript'>
+function addValue(counterValue, valueToAdd){
+	counterValue.value = parseInt(counterValue.value) + valueToAdd;
+}
+function resetLife(counterValue){
+	counterValue.value = 20;
+}
+</script>
+
+<center>
+<form>
+<input type=text name=amount value=20>
+<input type=button value="+5" onClick="javascript:addValue(amount, 5);">
+<input type=button value="+1" onClick="javascript:addValue(amount, 1);">
+<input type=button value="-1" onClick="javascript:addValue(amount, -1);">
+<input type=button value="-5" onClick="javascript:addValue(amount, -5);">
+<input type=button value="Reset" onClick="javascript:resetLife(amount);">
+</form>
+</center>
+
+
+<center>
+<form>
+<input type=text name=amount value=20>
+<input type=button value="+5" onClick="javascript:addValue(amount, 5);">
+<input type=button value="+1" onClick="javascript:addValue(amount, 1);">
+<input type=button value="-1" onClick="javascript:addValue(amount, -1);">
+<input type=button value="-5" onClick="javascript:addValue(amount, -5);">
+<input type=button value="Reset" onClick="javascript:resetLife(amount);">
+</form>
+</center>
